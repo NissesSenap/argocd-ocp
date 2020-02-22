@@ -2,5 +2,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://https://github.com/NissesSenap/argocd-ocp
+    repoURL: https://github.com/NissesSenap/argocd-ocp
     targetRevision: HEAD
