@@ -38,9 +38,15 @@ I currently want to get started with ArgoCD and I don't care to badly about long
 
 Open OLM UI and install the ArgoCD operator.
 
+```shell
 oc new-project argocd
 
 oc create -f argocd/ArgoCD.yml
+
+# If you wan't to give argocd service account cluster-admin
+oc apply -f argocd/cluster-admin.yml
+
+```
 
 ## App of Apps
 
@@ -53,7 +59,6 @@ To deploy the app of apps we will ofc use helm as well :).
 I'm counting that yuo already have installed helm v3, if not see [here](https://helm.sh/docs/intro/install/)
 
 ### Setup app of apps
-
 
 argocd app create apps \
     --dest-namespace argocd \
