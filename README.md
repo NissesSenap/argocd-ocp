@@ -41,3 +41,23 @@ Open OLM UI and install the ArgoCD operator.
 oc new-project argocd
 
 oc create -f argocd/ArgoCD.yml
+
+## App of Apps
+
+My plan is to use helm overall in this repo, if someone else want to use kustomize or what ever templating language,
+please feel free to do so. We will put it in another subfolder and it should be fine.
+The more exampels the better.
+
+To deploy the app of apps we will ofc use helm as well :).
+
+I'm counting that yuo already have installed helm v3, if not see [here](https://helm.sh/docs/intro/install/)
+
+### Setup app of apps
+
+
+argocd app create apps \
+    --dest-namespace argocd \
+    --dest-server https://kubernetes.default.svc \
+    --repo https://github.com/NissesSenap/argocd-ocp.git \
+    --path app_of_apps/helm  
+argocd app sync apps  
