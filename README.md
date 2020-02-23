@@ -54,9 +54,9 @@ My plan is to use helm overall in this repo, if someone else want to use kustomi
 please feel free to do so. We will put it in another subfolder and it should be fine.
 The more exampels the better.
 
-To deploy the app of apps we will ofc use helm as well :).
+You can use argocd to setup the sync but it's usefull to have when testing your helm chart.
 
-I'm counting that yuo already have installed helm v3, if not see [here](https://helm.sh/docs/intro/install/)
+I'm counting that you already have installed helm v3, if not see [here](https://helm.sh/docs/intro/install/)
 
 ### Setup app of apps
 
