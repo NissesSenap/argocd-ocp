@@ -1,16 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kustomize-guestbook
+  name: logging
   namespace: argocd
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
   destination:
-    namespace: kustomize-guestbook
+    namespace: openshift-operators-redhat
     server: {{ .Values.spec.destination.server }}
   project: default
   source:
-    path: kustomize-guestbook
+    path: logging/helm
     repoURL: {{ .Values.spec.source.repoURL }}
     targetRevision: {{ .Values.spec.source.targetRevision }}

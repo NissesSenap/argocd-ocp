@@ -11,3 +11,24 @@ metadata:
   name: kustomize-guestbook
   annotations:
     argocd.argoproj.io/sync-wave: "-1"
+---
+# NS for monitoring opeartor
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-operators-redhat 
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  labels:
+    openshift.io/cluster-monitoring: "true" 
+---
+# NS for monitoring opeartor
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-logging 
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  labels:  
+    openshift.io/cluster-logging: "true"
+    openshift.io/cluster-monitoring: "true"

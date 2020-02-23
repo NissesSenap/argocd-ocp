@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  generateName: "elasticsearch-"
+  namespace: {{ .Values.elastic_target_namespace }}
+spec:
+  channel: "4.3" 
+  installPlanApproval: "Automatic"
+  source: "redhat-operators"
+  sourceNamespace: {{ .Values.source_namespace }} 
+  name: "elasticsearch-operator"
