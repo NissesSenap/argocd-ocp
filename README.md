@@ -58,6 +58,7 @@ You can use argocd to setup the sync but it's usefull to have when testing your 
 
 I'm counting that you already have installed helm v3, if not see [here](https://helm.sh/docs/intro/install/)
 
+
 ### Setup app of apps
 
 argocd app create apps \
