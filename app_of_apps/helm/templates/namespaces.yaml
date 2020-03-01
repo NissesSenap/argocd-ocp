@@ -18,3 +18,14 @@ metadata:
   labels:  
     openshift.io/cluster-logging: "true"
     openshift.io/cluster-monitoring: "true"
+---
+# NS for OCS
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: openshift-storage
+  annotations:
+    argocd.argoproj.io/sync-wave: "-1"
+  labels:  
+    openshift.io/cluster-logging: "true"
+    openshift.io/cluster-monitoring: "true"
