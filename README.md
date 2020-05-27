@@ -46,7 +46,19 @@ oc create -f argocd/ArgoCD.yml
 # If you wan't to give argocd service account cluster-admin
 oc apply -f argocd/cluster-admin.yml
 
+# To expose argocd outside of the cluster
+oc create route passthrough argocd --service=argocd-server --port=https --insecure-policy=Redirect
 ```
+
+To get the admin password during the initial install the documentation tells you to do
+
+```kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2```
+But this dosen't work if you are using the operator currently published in OLM ArgoCD version 0.0.8.
+
+Instead you should use:
+```kubectl get secret argocd-cluster -o json | jq r - "data"```
+
+I can't get the one liner to work but base64 --decode the output ^^
 
 ## App of Apps
 
